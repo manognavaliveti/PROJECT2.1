@@ -1,0 +1,147 @@
+<div>
+
+	<div>
+		<hr>
+		<button type="button" data-toggle="modal" data-target="#myModal">Add
+			New Job</button>
+		<h2>All Jobs</h2>
+		<span class="clearfix"></span>
+		</hr>
+		<hr>
+		</hr>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Job id</th>
+					<th>Company Name</th>
+					<th>Role</th>
+					<th>Requirements</th>
+					<th>eligibility</th>
+					<th>URL</th>
+					<th>location</th>
+					<th>Date</th>
+					<th>Salary</th>
+			
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="job in jobs">
+				 <td>{{job.jobId}}</td>
+            <td>{{job.companyName}}</td>
+            <td>{{job.role}}</td>
+            <td>{{job.skillsRequired}}</td>
+            <td>{{job.eligibility}}</td>
+            <td>{{job.companyUrl}}</td>
+            <td>{{job.companyAddress}}</td>
+            <td>{{job.interviewDate}}</td>
+            <td>{{job.ctc}}</td>
+					<td><button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#editjob" ng-click="editJob(job)">Edit</button></td>
+					<td><button type="button" class="btn btn-danger btn-sm "data-toggle="modal" data-target="#deletejob" ng-click="editJob(job)">Delete</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Add New Job</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<center>
+ {{message}}
+<form class=signUp name="jobForm">
+<h1>company name<br><input type="text" name="companyName" ng-model="companyName" required>
+ <span  ng-show="jobForm.companyName.$error.required" style="color:red; font-family: cursive; font-size: small;">*name field required</span>
+       <span  ng-show="jobForm.companyName.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br>
+<h1>Role<br><input type="text" name="role" ng-model="role" required><span  ng-show="jobForm.role.$error.required" style="color:red; font-family: cursive; font-size: small;">*name field required</span>
+       <span  ng-show="jobForm.role.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span><br>
+<h1>skillsRequired<br><input type="text" name="skillsRequired" ng-model="skillsRequired" required>
+<span  ng-show="jobForm.skillsRequired.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.skillsRequired.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br><br>
+<h1>eligibility<br><input type="text" name="eligibility" ng-model="eligibility" required>
+<span  ng-show="jobForm.eligibility.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.eligibility.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br>
+<h1>companyUrl<br><input type="text" name="companyUrl" ng-model="companyUrl" required>
+<span  ng-show="jobForm.companyUrl.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.companyUrl.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+
+<br>
+<h1>ctc<br><input type="text" name="ctc" ng-model="ctc" required>
+<span  ng-show="jobForm.ctc.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.ctc.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br>
+<h1>interviewDate<br><input type="text" name="interviewDate" ng-model="interviewDate" required>
+<span  ng-show="jobForm.interviewDate.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.interviewDate.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br>
+<h1>companyAddress<br><input type="text" name="companyAddress" ng-model="companyAddress" required>
+<span  ng-show="jobForm.companyAddress.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.companyAddress.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br>
+<center><button type="submit" class="btn btn-success" ng-click="addJobs()" ng-disabled="jobForm.$invalid">Jobs</button></center>
+</form>
+</center>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="editjob" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Edit</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<h1>company name:<br><input type="text" name="companyName" ng-model="jobedit.companyName"><br>
+							<h1>role:<br><input type="text" name="role" ng-model="jobedit.role"><br>
+							<h1>eligibility:<br><input type="text" name="eligibility" ng-model="jobedit.eligibility"><br> 
+							<h1>skills:<br><input type="text" name="skillsRequired" ng-model="jobedit.skillsRequired"><br>
+							<h1>URL:<br><input type="text" name="companyUrl" ng-model="jobedit.companyUrl"><br>
+							<h1>location:<br><input type="text" name="companyAddress" ng-model="jobedit.companyAddress"><br>
+							<h1>DATE:<br><input type="text" name="interviewDate" ng-model="jobedit.interviewDate"><br>
+							<h1>ctc:<br><input type="text" name="ctc" ng-model="jobedit.ctc"><br>
+							<button type="submit" ng-click="saveEdit()">SaveEdit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="deletejob" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Delete</h4>
+					</div>
+					<div class="modal-body">Do you want to delete
+						{{jobedit.jobId}} job permanently?</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-btn-default" data-dismiss="modal"
+						ng-click="deleteJob(jobedit)">Yes</button>
+					<button type="button" class="btn-btn-default" data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

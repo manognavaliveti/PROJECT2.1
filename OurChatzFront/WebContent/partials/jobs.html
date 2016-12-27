@@ -1,0 +1,43 @@
+
+
+
+<div>
+
+<center>
+ {{message}}
+<form class=signUp name="jobForm">
+company name<br><input type="text" name="companyName" ng-model="companyName" required>
+ <span  ng-show="jobForm.companyName.$error.required" style="color:red; font-family: cursive; font-size: small;">*name field required</span>
+       <span  ng-show="jobForm.companyName.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br>
+Role<br><input type="text" name="role" ng-model="role" required><span  ng-show="jobForm.role.$error.required" style="color:red; font-family: cursive; font-size: small;">*name field required</span>
+       <span  ng-show="jobForm.role.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span><br>
+skillsRequired<br><input type="text" name="skillsRequired" ng-model="skillsRequired" required>
+<span  ng-show="jobForm.skillsRequired.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.skillsRequired.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br><br>
+eligibility<br><input type="text" name="eligibility" ng-model="eligibility" required>
+<span  ng-show="jobForm.eligibility.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.eligibility.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br>
+companyUrl<br><input type="text" name="companyUrl" ng-model="companyUrl" required>
+<span  ng-show="jobForm.companyUrl.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.companyUrl.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+
+<br>
+ctc<br><input type="text" name="ctc" ng-model="ctc" required>
+<span  ng-show="jobForm.ctc.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.ctc.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br>
+interviewDate<br><input type="text" name="interviewDate" ng-model="interviewDate" required>
+<span  ng-show="jobForm.interviewDate.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.interviewDate.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br>
+companyAddress<br><input type="text" name="companyAddress" ng-model="companyAddress" required>
+<span  ng-show="jobForm.companyAddress.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="jobForm.companyAddress.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+<br>
+<center><button type="submit" class="btn btn-success" ng-click="addJobs()" ng-disabled="jobForm.$invalid">Jobs</button></center>
+</form>
+</center>
+</div>

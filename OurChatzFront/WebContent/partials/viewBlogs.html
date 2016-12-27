@@ -1,0 +1,142 @@
+
+<head>
+<style>
+body{
+background-image:url("C:\Users\PREM KUMAR\Desktop\prj2\OurChatzFront\WebContent\images\blog.jpg");
+background-repeat:no-repeat;
+}
+
+</style>
+
+</head>
+<body>
+ <div>
+
+ <hr>
+<button type="button"  data-toggle="modal" data-target="#myModal">Add New Blog</button>
+<h1>Blogs</h1>
+<table class="table table-striped">
+</hr>
+    <thead>
+      <tr>
+      <th>blog id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>PostedBy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="blog in blogs">
+      <td>{{blog.blogId}}</td>
+        <td>{{blog.title}}</td>
+        <td>{{blog.description}}</td>
+        <td>{{blog.postedBy}}</td>
+      
+        <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editblog" ng-click="editBlog(blog)">Edit</button></td>
+         <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deleteblog" ng-click="editBlog(blog)">Delete</button></td>
+      </tr>
+       </tbody>
+  </table>
+ 
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add New Blog</h4>
+        </div>
+        <div class="modal-body">
+        <form class="myClass" name="blogForm">
+         {{message}}
+        <h1>Title:<input type="text" name="title" ng-model="title" required>
+        <span  ng-show="blogForm.title.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="blogForm.title.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+        
+        <br>
+        <h1>Description:<input type="text" name="description" ng-model="description" required>
+        <span  ng-show="blogForm.description.$error.required" style="color:red; font-family: cursive; font-size: small;">* field required</span>
+       <span  ng-show="blogForm.description.$error.text" style="color:red; font-family: cursive; font-size: small;">not a valid name</span>
+        
+        <br>
+        <button type="submit"  class="btn btn-success" ng-click="addBlog()" ng-disabled="blogForm.$invalid>Submit</button>
+        </form></div></div></div></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+      </div>
+      
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="editblog" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Blog</h4>
+        </div>
+        <div class="modal-body">
+         <form class="form-horizontal">
+         <div class="form-group">
+    <label class="control-label col-sm-2" for="blogId">Blog_Id</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="blogId" ng-model="blogDataToEdit.blogId">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="title">Title:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="title" ng-model="blogDataToEdit.title">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="description">Description:</label>
+    <div class="col-sm-10"> 
+      <textarea class="form-control" id="description" ng-model="blogDataToEdit.description"></textarea>
+    </div>
+  </div>
+  
+  
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary btn-lg" ng-click="saveEdit()" data-dismiss="modal">Save Edit</button>
+    </div>
+  </div>
+</form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="deleteblog" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Delete Blog</h4>
+        </div>
+        <div class="modal-body">
+         <strong >You are about to delete {{blogDataToEdit.blogId}} the blog Are you sure?</strong>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="deleteBlog(blogDataToEdit)">Yes</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    </div>
+    </body>

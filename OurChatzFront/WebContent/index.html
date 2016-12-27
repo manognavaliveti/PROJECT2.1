@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="OurChatz" ng-init="allForums=false;chat=false;forums=false;blog=false;users=false;viewBlogs=false;login=true;register=true;about=true;services=true;home=true;logout=false;chat=false;adminBlog=false;viewJobs=false;jobs=false">
+
+<head>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+  <!-- SPELLS -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="libs/stomp-websocket/lib/stomp.min.js" type="text/javascript"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/lodash/dist/lodash.min.js"></script>
+ <script src="libs/sockjs/sockjs.min.js" type="text/javascript"></script>
+ <script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-cookies.js"></script>
+ 
+
+<style>
+body{
+background-image:url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQsikuE_d0JKs1opbQAoD8AXh7O_Zg3FWryAR_fdHrDid9vim4z");
+background-repeat:no-repeat;
+background-size:cover;
+
+}
+</style>
+
+<script src="js/my.js"></script>
+
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+      
+        <a class="navbar-brand" href="/"><img src="http://www.clipartsmania.com/gif/animals_gif/humming_bird_flying_animation_clipart.GIF" height="40" width="40"></img>OURCHATZ</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#register" ng-show="register"><i class="fa fa-home" ></i> Register</a></li>
+        <li><a href="#login" ng-show="login"><i class="fa fa-shield"></i> Login</a></li>
+        <li><a href="#blog" ng-show="blog"><i class="fa fa-list"></i> MyBlogs</a></li>
+        <li><a href="#jobs" ng-show="jobs"><i class="fa fa-list"></i> ViewJobs</a></li>
+        <li><a href="#chat" ng-show="chat"><i class="fa fa-shield"></i>Chat</a></li>
+        <li><a href="#logout" ng-show="logout"><i class="fa fa-shield"></i>LogOut</a></li>
+        <li><a href="#viewBlogs" ng-show="viewBlogs"><i class="fa fa-list"></i>Blogs</a></li>
+        <li><a href="#viewJobs" ng-show="viewJobs"><i class="fa fa-list"></i>Jobs</a></li>
+        <li><a href="#adminBlog" ng-show="adminBlog"><i class="fa fa-comment"></i>Blogs</a></li>
+        <li><a href="#forums" ng-show="forums"><i classs="fa fa-list"></i>Forum</a></li>
+        <li><a href="#allForums" ng-show="allForums"><i classs="fa fa-list"></i>ViewForums</a></li>
+         </ul>
+         
+         
+         
+    </div>
+  </nav>
+  
+<div ng-view></div>
+</body>
+</html>
+

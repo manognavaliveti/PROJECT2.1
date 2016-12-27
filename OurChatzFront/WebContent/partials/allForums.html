@@ -1,0 +1,25 @@
+<div>
+	<hr>
+	<h2>All Forums</h2>
+	<span class="clearfix"></span>
+	</hr>
+	<hr>
+	</hr>
+	<table class="table table-striped">
+	<thead>
+	<tr>
+	<th>Forum id</th>
+    <th>Title</th>
+	<th>Description</th>
+	<th>givenBy</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="forums in allForums">
+	<td>{{forums.questionId}}</td>
+	<td>{{forums.questionTitle}}</td>
+	<td>{{forums.questionDescription}}</td>
+	<td>{{forums.givenBy}}</td>
+</tr>
+		</tbody>
+	</table>

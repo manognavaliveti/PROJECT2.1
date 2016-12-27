@@ -1,0 +1,84 @@
+<div class="jumbotron text-center">
+	
+	<button type="button" data-toggle="modal" data-target="#friends" ng-click="findfriends()">
+		Find Friends</button>
+		<button type="button"  data-toggle="modal" data-target="#friendslist" ng-click="friendslist()">
+		Friends List</button>
+	
+<img class="img-responsive" src="images/{{uname}}.jpg" alt="Chania" style="width: 20%;height: 30%">
+	<h5 style="text-align: left;">Hello,{{uname}}</h5>
+	<hr>
+	</hr>
+	<!-- Modal -->
+	<div class="modal fade" id="friends" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Find Friends</h4>
+				</div>
+				<div class="modal-body">
+				<table class="table table-striped">
+		<thead>
+		<tr>
+		<th>users</th>
+		</tr></thead>
+		<tbody>
+			<tr ng-repeat=" user in friends">
+				<td>{{user.username}}</td>
+					<td><img src="images/{{user.username}}.jpg" alt="me" style="width:150px;height:150px;border-radius: 50%;">
+			</td>
+				<td><button type="button" class="btn btn-primary btn-sm "
+						data-toggle="modal" data-target="#"
+						ng-click="addfriend(user)">Add As Friend</button>
+						</td>
+			</tr>
+		</tbody>
+	</table></div>
+			</div>
+			<div class="modal-footer">
+				
+			</div>
+		</div>
+	</div>
+	
+			
+				<!-- Modal -->
+	<div class="modal fade" id="friendslist" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Friends List</h4>
+				</div>
+				<div class="modal-body">
+				<table class="table table-striped">
+		<thead><tr>
+		 <th>Name</th>
+        <th>online status</th></tr>
+        </thead>
+		<tbody>
+			<tr ng-repeat=" user in friendslist">
+			
+			<td>{{user.friendName}}</td>
+			<td>{{user.online}}</td>
+				<td><img src="images/{{user.friendName}}.jpg" alt="me" style="width:150px;height:150px;border-radius: 50%;">
+			</td>
+			<td><li><a href="#chat">
+						 Chat</a></li></td>
+		
+			</tr>
+		</tbody>
+	</table>
+				</div>
+			</div>
+	<div class="modal-footer">
+				</div></div>
+	</div>
+	
+</div>
+	

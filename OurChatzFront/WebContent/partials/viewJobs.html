@@ -1,0 +1,88 @@
+<div>
+<h1>VIEW JOBS</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+      <th>job id</th>
+        <th>Companyname</th>
+        <th>Role</th>
+        <th>Skills</th>
+        <th>Eligibility</th>
+        <th>URL</th>
+        <th>CTC</th>
+        <th>Drive Date</th>
+        <th>Company Location</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="job in jobs">
+      <td>{{job.jobId}}</td>
+        <td>{{job.companyName}}</td>
+        <td>{{job.role}}</td>
+        <td>{{job.skillsRequired}}</td>
+        <td>{{job.eligibility}}</td>
+        <td>{{job.companyUrl}}</td>
+        <td>{{job.ctc}}</td>
+        <td>{{job.interviewDate}}</td>
+        <td>{{job.companyAddress}}</td>
+      <td><button type="button" class="btn btn-primary btn-sm "
+						data-toggle="modal" data-target="#applyjob"
+						ng-click="applyJob">Apply</button></td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="applyjob" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Apply</h4>
+				</div>
+				<div class="modal-body">Do you want to apply
+					{{job.jobId}} job?</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn-btn-default" data-toggle="modal" data-target="#jobAppConfirmation"
+						ng-click="jobAppConfirmation">Yes</button>
+				<button type="button" class="btn-btn-default" data-dismiss="modal">No</button>
+			</div>
+			<div class="modal fade" id="jobAppConfirmation" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Job Application Status</h4>
+        </div>
+        <div class="modal-body">
+       <h1>ThankYou!!!!!!!!!!!!You have successfully applied for this job. We will get back to you shortly</h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
